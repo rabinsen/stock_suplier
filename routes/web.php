@@ -27,3 +27,7 @@ Route::get('/login', 'LoginController@login');
 Route::post('/login', 'LoginController@postLogin');
 
 Route::get('/dashboard', 'DashboardController@index');
+
+Route::get('/users', 'UserController@index');
+Route::get('/addUsers', 'UserController@addUser');
+Route::post('/postUsers', 'UserController@postUser');
