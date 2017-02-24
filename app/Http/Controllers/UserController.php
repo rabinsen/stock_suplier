@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index(){
-        $users = User::all();
+        $users = Sentinel::getUserRepository()->all();
         return view ('admin.users', compact('users'));
 
     }
@@ -23,6 +23,11 @@ class UserController extends Controller
             if ($role->name == 'admin')
             {
                 $role = Sentinel::findRoleBySlug('admin');
+                $role->users()->attach($user);
+            }
+            elseif ($role->name = 'project_manager')
+            {
+                $role = Sentinel::findRoleBySlug('project_manager');
                 $role->users()->attach($user);
             }
             return redirect('/users');
