@@ -82,6 +82,14 @@
                                 </div>
                             </div>
 
+                            <div class="form-group ">
+                                <label for="cpassword" class="control-label col-lg-2">Role <span class="required">*</span></label>
+                                <select name="role">
+                                    <option value="admin">ADMIN</option>
+                                    <option value="project_manager">PROJECT_MANAGER</option>
+                                </select>
+                            </div>
+
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
                                     <button class="btn btn-primary" type="submit">Save</button>

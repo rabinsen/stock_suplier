@@ -18,6 +18,13 @@ class UserController extends Controller
     }
     public function postUser(Request $request){
             $user = Sentinel::registerAndActivate($request->all());
+            $role = Sentinel::getRoleRepository();
+            $role->name = $request->role;
+            if ($role->name == 'admin')
+            {
+                $role = Sentinel::findRoleBySlug('admin');
+                $role->users()->attach($user);
+            }
             return redirect('/users');
 
     }
