@@ -74,7 +74,7 @@
                             <div class="form-group ">
                                 <label for="cpassword" class="control-label col-lg-2">Project Assign To <span class="required">*</span></label>
 
-                                <select name="assign">
+                                <select name="assign_to">
                                     @foreach($users as $user)
                                     <option value="{{ $user->first_name }} {{ $user->last_name }}">{{ $user->first_name }} {{ $user->last_name }}</option>
                                     @endforeach

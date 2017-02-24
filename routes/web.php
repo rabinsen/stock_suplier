@@ -32,6 +32,6 @@ Route::get('/users', 'UserController@index');
 Route::get('/addUsers', 'UserController@addUser');
 Route::post('/postUsers', 'UserController@postUser');
 
-Route::get('projects', 'ProjectsController@index');
-Route::get('addProjects', 'ProjectsController@projects');
-Route::psot('postProjects', 'ProjectController@postProjects');
+Route::get('/projects', 'ProjectsController@index');
+Route::get('/addProjects', 'ProjectsController@projects');
+Route::post('/postProjects', 'ProjectsController@postProjects');
