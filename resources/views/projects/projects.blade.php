@@ -63,15 +63,15 @@
                                 <th><i class="icon_mail_alt"></i> Assigned To</th>
                                 {{--<th><i class="icon_pin_alt"></i> City</th>--}}
                                 {{--<th><i class="icon_mobile"></i> Mobile</th>--}}
-                                <th><i class="icon_user"></i> Created At</th>
+                                <th><i class="icon_user"></i> Date</th>
                                 <th><i class="icon_cogs"></i> Action</th>
                             </tr>
-                            {{--@foreach($users as $user)--}}
+                            @foreach($projects as $project)
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{ $project->name }}</td>
+                                    <td>{{ $project->description }}</td>
+                                    <td>{{ $project->assign_to }}</td>
+                                    <td>{{ $project->created_at }}</td>
                                     {{--<td>176-026-5992</td>--}}
                                     <td>
                                         <div class="btn-group">
@@ -81,7 +81,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                            {{--@endforeach--}}
+                            @endforeach
                             </tbody>
                         </table>
                     </section>

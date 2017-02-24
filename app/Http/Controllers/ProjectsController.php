@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Session;
 class ProjectsController extends Controller
 {
     public function index(){
-        return view('projects.projects');
+        $projects = Projects::all();
+
+        return view('projects.projects', compact('projects'));
     }
 
     public function projects(){
