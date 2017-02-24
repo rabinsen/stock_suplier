@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
@@ -11,7 +12,8 @@ class ProjectsController extends Controller
     }
 
     public function projects(){
-    return view('projects.addProjects');
+        $users = User::all();
+    return view('projects.addProjects', compact('users'));
 }
 
 

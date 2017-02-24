@@ -34,3 +34,4 @@ Route::post('/postUsers', 'UserController@postUser');
 
 Route::get('projects', 'ProjectsController@index');
 Route::get('addProjects', 'ProjectsController@projects');
+Route::psot('postProjects', 'ProjectController@postProjects');

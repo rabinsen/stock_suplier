@@ -54,40 +54,32 @@
                 </header>
                 <div class="panel-body">
                     <div class="form">
-                        <form class="form-validate form-horizontal" method="POST" action="{{ url('/postUsers') }}">
+                        <form class="form-validate form-horizontal" method="POST" action="{{ url('/postProjects') }}">
                             {{ csrf_field() }}
                             <div class="form-group ">
-                                <label for="cfname" class="control-label col-lg-2">Project Name <span class="required">*</span></label>
+                                <label for="cpname" class="control-label col-lg-2">Project Name <span class="required">*</span></label>
                                 <div class="col-lg-10">
-                                    <input class="form-control" id="cfname" name="first_name" minlength="5" type="text" required />
+                                    <input class="form-control" id="cpname" name="project_name" minlength="5" type="text" required />
                                 </div>
                             </div>
 
                             <div class="form-group ">
-                                <label for="clname" class="control-label col-lg-2">Description <span class="required">*</span></label>
+                                <label for="cdesc" class="control-label col-lg-2">Description <span class="required">*</span></label>
                                 <div class="col-lg-10">
-                                    <input class="form-control" id="clname" name="last_name" minlength="5" type="text" required />
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <label for="cemail" class="control-label col-lg-2">E-Mail <span class="required">*</span></label>
-                                <div class="col-lg-10">
-                                    <input class="form-control " id="cemail" type="email" name="email" required />
-                                </div>
-                            </div>
-                            <div class="form-group ">
-                                <label for="cpassword" class="control-label col-lg-2">Password <span class="required">*</span></label>
-                                <div class="col-lg-10">
-                                    <input class="form-control" id="cpasword" name="password" minlength="5" type="password" required />
+                                    <input class="form-control" id="clname" name="description" minlength="5" type="text" required />
                                 </div>
                             </div>
 
+
                             <div class="form-group ">
-                                <label for="cpassword" class="control-label col-lg-2">Role <span class="required">*</span></label>
-                                <select name="role">
-                                    <option value="admin">ADMIN</option>
-                                    <option value="project_manager">PROJECT_MANAGER</option>
+                                <label for="cpassword" class="control-label col-lg-2">Project Assign To <span class="required">*</span></label>
+
+                                <select name="assign">
+                                    @foreach($users as $user)
+                                    <option value="{{ $user->first_name }} {{ $user->last_name }}">{{ $user->first_name }} {{ $user->last_name }}</option>
+                                    @endforeach
                                 </select>
+
                             </div>
 
                             <div class="form-group">
