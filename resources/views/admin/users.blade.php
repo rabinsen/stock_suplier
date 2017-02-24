@@ -71,8 +71,8 @@
                                 <td>{{ $user->first_name }}</td>
                                 <td>{{ $user->last_name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->roles }}</td>
-                                <td>176-026-5992</td>
+                                <td>{{ ($user->roles->count()) }}</td>
+                                {{--<td>176-026-5992</td>--}}
                                 <td>
                                     <div class="btn-group">
                                         <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
