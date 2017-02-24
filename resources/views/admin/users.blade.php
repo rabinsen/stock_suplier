@@ -58,19 +58,20 @@
                         <table class="table table-striped table-advance table-hover">
                             <tbody>
                             <tr>
-                                <th><i class="icon_profile"></i> Full Name</th>
-                                <th><i class="icon_calendar"></i> Date</th>
+                                <th><i class="icon_profile"></i> First Name</th>
+                                <th><i class="icon_profile"></i> Last Name</th>
                                 <th><i class="icon_mail_alt"></i> Email</th>
-                                <th><i class="icon_pin_alt"></i> City</th>
-                                <th><i class="icon_mobile"></i> Mobile</th>
+                                {{--<th><i class="icon_pin_alt"></i> City</th>--}}
+                                {{--<th><i class="icon_mobile"></i> Mobile</th>--}}
+                                <th><i class="icon_user"></i> Role</th>
                                 <th><i class="icon_cogs"></i> Action</th>
                             </tr>
                             @foreach($users as $user)
                             <tr>
+                                <td>{{ $user->first_name }}</td>
+                                <td>{{ $user->last_name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>2004-07-06</td>
-                                <td>dale@chief.info</td>
-                                <td>Rosser</td>
+                                {{--<td>{{ $user->roles->count() }}</td>--}}
                                 <td>176-026-5992</td>
                                 <td>
                                     <div class="btn-group">
