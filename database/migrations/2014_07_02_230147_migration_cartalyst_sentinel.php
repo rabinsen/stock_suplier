@@ -106,6 +106,15 @@ class MigrationCartalystSentinel extends Migration
             $table->engine = 'InnoDB';
             $table->unique('email');
         });
+
+        Schema::create('projects', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('description');
+            $table->string('assign_to');
+            $table->timestamps();
+
+        });
     }
 
     /**
@@ -122,5 +131,6 @@ class MigrationCartalystSentinel extends Migration
         Schema::drop('role_users');
         Schema::drop('throttle');
         Schema::drop('users');
+        Schema::drop('projects');
     }
 }

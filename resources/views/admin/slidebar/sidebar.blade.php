@@ -20,16 +20,12 @@
                 {{--</ul>--}}
             </li>
             <li class="sub-menu">
-                <a href="javascript:;" class="">
+                <a href="{{ url('projects') }}" class="">
                     <i class="icon_desktop"></i>
-                    <span>UI Fitures</span>
-                    <span class="menu-arrow arrow_carrot-right"></span>
+                    <span>Projects</span>
+
                 </a>
-                <ul class="sub">
-                    <li><a class="" href="general.html">Elements</a></li>
-                    <li><a class="" href="buttons.html">Buttons</a></li>
-                    <li><a class="" href="grids.html">Grids</a></li>
-                </ul>
+
             </li>
             <li>
                 <a class="" href="widgets.html">

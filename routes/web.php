@@ -31,3 +31,6 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::get('/users', 'UserController@index');
 Route::get('/addUsers', 'UserController@addUser');
 Route::post('/postUsers', 'UserController@postUser');
+
+Route::get('projects', 'ProjectsController@index');
+Route::get('addProjects', 'ProjectsController@projects');
