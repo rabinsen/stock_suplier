@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Cartalyst\Sentinel\Native\Facades\Sentinel;
+use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+
 
 
 use Illuminate\Http\Request;
@@ -19,5 +20,10 @@ class LoginController extends Controller
             return redirect('/login');
         }
         return redirect('/dashboard');
+    }
+
+    public function logout(){
+        Sentinel::logout();
+        return redirect('/login');
     }
 }

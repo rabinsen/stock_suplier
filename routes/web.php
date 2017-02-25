@@ -26,12 +26,14 @@ Route::post('/register', [
 Route::get('/login', 'LoginController@login');
 Route::post('/login', 'LoginController@postLogin');
 
-Route::get('/dashboard', 'DashboardController@index');
+Route::post('/logout', 'LoginController@logout');
 
-Route::get('/users', 'UserController@index');
-Route::get('/addUsers', 'UserController@addUser');
-Route::post('/postUsers', 'UserController@postUser');
+Route::get('/dashboard', 'DashboardController@index')->middleware('admin');
 
-Route::get('/projects', 'ProjectsController@index');
-Route::get('/addProjects', 'ProjectsController@projects');
-Route::post('/postProjects', 'ProjectsController@postProjects');
+Route::get('/users', 'UserController@index')->middleware('admin');
+Route::get('/addUsers', 'UserController@addUser')->middleware('admin');
+Route::post('/postUsers', 'UserController@postUser')->middleware('admin');;
+
+Route::get('/projects', 'ProjectsController@index')->middleware('admin');;
+Route::get('/addProjects', 'ProjectsController@projects')->middleware('admin');;
+Route::post('/postProjects', 'ProjectsController@postProjects')->middleware('admin');;

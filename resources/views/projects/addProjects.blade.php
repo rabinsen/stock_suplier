@@ -76,7 +76,7 @@
 
                                 <select name="assign_to">
                                     @foreach($users as $user)
-                                    <option value="{{ $user->first_name }} {{ $user->last_name }}">{{ $user->first_name }} {{ $user->last_name }}</option>
+                                    <option value="{{ $user->first_name }}">{{ $user->first_name }}</option>
                                     @endforeach
                                 </select>
 

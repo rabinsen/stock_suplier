@@ -230,6 +230,7 @@
                 </a>
                 <ul class="dropdown-menu extended logout">
                     <div class="log-arrow-up"></div>
+
                     <li class="eborder-top">
                         <a href="#"><i class="icon_profile"></i> My Profile</a>
                     </li>
@@ -242,9 +243,16 @@
                     <li>
                         <a href="#"><i class="icon_chat_alt"></i> Chats</a>
                     </li>
-                    <li>
-                        <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
-                    </li>
+
+                        <li>
+                            <form action="/logout" method="POST" id="logout-form">
+                                {{ csrf_field() }}
+                                <a href="#" onclick="document.getElementById('logout-form').submit()"><i class="icon_key_alt"></i> Log Out</a>
+                            </form>
+
+                        </li>
+
+
                     <li>
                         <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
                     </li>

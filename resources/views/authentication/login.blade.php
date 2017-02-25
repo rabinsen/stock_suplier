@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Register</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
@@ -9,7 +9,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Login</div>
             <div class="panel-body">
-                <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+                <form class="form-horizontal" role="form" method="POST" action="/login">
                     {{ csrf_field() }}
 
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -52,10 +52,7 @@
 
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fa fa-btn fa-sign-in"></i> Login
-                            </button>
-
+                            <input type="submit" value="login" class="btn btn-success">
                             <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                         </div>
                     </div>
