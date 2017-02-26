@@ -19,7 +19,14 @@ class LoginController extends Controller
         if(!$login){
             return redirect('/login');
         }
-        return redirect('/dashboard');
+        else {
+            $slug = Sentinel::getUser()->roles()->first()->slug;
+            if ($slug == 'admin') {
+                return redirect('/dashboard');
+            } elseif ($slug == 'project_manager') {
+                return redirect('/mdashboard');
+            }
+        }
     }
 
     public function logout(){

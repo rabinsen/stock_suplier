@@ -28,12 +28,17 @@ Route::post('/login', 'LoginController@postLogin');
 
 Route::post('/logout', 'LoginController@logout');
 
-Route::get('/dashboard', 'DashboardController@index')->middleware('admin');
-Route::get('/users', 'UserController@index')->middleware('admin');
-Route::get('/addUsers', 'UserController@addUser')->middleware('admin');
-Route::post('/postUsers', 'UserController@postUser')->middleware('admin');;
-Route::get('/projects', 'ProjectsController@index')->middleware('admin');;
-Route::get('/addProjects', 'ProjectsController@projects')->middleware('admin');;
-Route::post('/postProjects', 'ProjectsController@postProjects')->middleware('admin');;
+Route::group(['middleware' => 'admin'], function(){
+    Route::get('/dashboard', 'DashboardController@index');
+    Route::get('/users', 'UserController@index');
+    Route::get('/addUsers', 'UserController@addUser');
+    Route::post('/postUsers', 'UserController@postUser');
+    Route::get('/projects', 'ProjectsController@index');
+    Route::get('/addProjects', 'ProjectsController@projects');
+    Route::post('/postProjects', 'ProjectsController@postProjects');
+});
 
-//Route::post('/managerDashboard, ')
+Route::group(['middleware' => 'manager'], function(){
+    Route::get('/mdashboard', 'ManDashboardController@index');
+    Route::get('/managerProjects', 'ManDashboardController@projects');
+});
