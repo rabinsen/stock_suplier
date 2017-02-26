@@ -44,7 +44,7 @@
             <!--overview start-->
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa-user"></i> Users</h3>
+                    <h3 class="page-header"><i class="fa fa-user"></i> Project</h3>
 
                 </div>
             </div>

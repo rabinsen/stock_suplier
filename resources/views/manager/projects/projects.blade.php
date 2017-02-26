@@ -52,7 +52,7 @@
             <div class="row">
 
                 <div class="col-lg-12">
-                    <button class="btn btn-default" type="submit"><a  href="{{ url('addProjects') }}">Add Project</a></button>
+
                     {{--<button class="btn btn-primary" >Save</button>--}}
                     <section class="panel">
                         <table class="table table-striped table-advance table-hover">
