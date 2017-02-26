@@ -19,7 +19,7 @@
                 </ul>
             </li>
             <li class="sub-menu">
-                <a href="{{ url('projects') }}" class="">
+                <a href="#" class="">
                     <i class="icon_desktop"></i>
                     <span>Progress</span>
 

@@ -44,47 +44,53 @@
             <!--overview start-->
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa-user"></i> My Projects</h3>
+                    <h3 class="page-header"><i class="fa fa-user"></i> Users</h3>
 
                 </div>
             </div>
+            <section class="panel">
+                <header class="panel-heading">
+                    Input Details
+                </header>
+                <div class="panel-body">
+                    <div class="form">
+                        <form class="form-validate form-horizontal" method="POST" action="">
+                            {{ csrf_field() }}
+                            <div class="form-group ">
+                                <label for="cpname" class="control-label col-lg-2">Project Name <span class="required">*</span></label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="cpname" name="project_name" minlength="5" type="text" required />
+                                </div>
+                            </div>
 
-            <div class="row">
+                            <div class="form-group ">
+                                <label for="cdesc" class="control-label col-lg-2">Description <span class="required">*</span></label>
+                                <div class="col-lg-10">
+                                    <input class="form-control" id="clname" name="description" minlength="5" type="text" required />
+                                </div>
+                            </div>
 
-                <div class="col-lg-12">
-                    <button class="btn btn-default" type="submit"><a  href="{{ url('addProjects') }}">Add Project</a></button>
-                    {{--<button class="btn btn-primary" >Save</button>--}}
-                    <section class="panel">
-                        <table class="table table-striped table-advance table-hover">
-                            <tbody>
-                            <tr>
-                                <th><i class="icon_profile"></i> Project Name</th>
-                                <th><i class="icon_profile"></i> Description</th>
-                                <th><i class="icon_mail_alt"></i> Handled By</th>
-                                {{--<th><i class="icon_pin_alt"></i> City</th>--}}
-                                {{--<th><i class="icon_mobile"></i> Mobile</th>--}}
-                                <th><i class="icon_user"></i> Date</th>
-                                <th><i class="icon_cogs"></i> Action</th>
-                            </tr>
-                            @foreach($projects as $project)
-                                <tr>
-                                    <td>{{ $project->name }}</td>
-                                    <td>{{ $project->description }}</td>
-                                    <td>{{ $project->assign_to }}</td>
-                                    <td>{{ $project->created_at }}</td>
-                                    {{--<td>176-026-5992</td>--}}
-                                    <td>
-                                        <div class="btn-group">
-                                            <a class="btn btn-primary" href="{{ url('projectProgress') }}">Progress</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </section>
+
+                            <div class="form-group ">
+                                <label for="cpassword" class="control-label col-lg-2">Project Assign To <span class="required">*</span></label>
+                                {{--<select name="assign_to">--}}
+                                    {{--@foreach($users as $user)--}}
+                                        {{--<option value="a"></option>--}}
+                                    {{--@endforeach--}}
+                                {{--</select>--}}
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <button class="btn btn-primary" type="submit">Save</button>
+                                    {{--<button class="btn btn-default" type="button"><>Cancel</></button>--}}
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
-            </div>
+            </section>
         </section>
     </section>
 

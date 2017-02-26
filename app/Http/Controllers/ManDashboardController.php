@@ -17,4 +17,8 @@ class ManDashboardController extends Controller
         $projects = Projects::where('user_id', $user->id)->get();
         return view('manager.projects.projects', compact('projects'));
     }
+
+    public function progress(){
+        return view('manager.projects.progress');
+    }
 }
