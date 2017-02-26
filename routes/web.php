@@ -41,5 +41,9 @@ Route::group(['middleware' => 'admin'], function(){
 Route::group(['middleware' => 'manager'], function(){
     Route::get('/mdashboard', 'ManDashboardController@index');
     Route::get('/managerProjects', 'ManDashboardController@projects');
-    Route::get('/projectProgress', 'ManDashboardController@progress');
+//    Route::get('/projectProgress/{id}', 'ManDashboardController@progress');
+    Route::get('/projectProgress/{id}', [
+        'uses' => 'ManDashboardController@progress',
+        'as' => 'projectProgress',]);
+    Route::post('/postProjects','ManDashboardController@postProgress');
 });

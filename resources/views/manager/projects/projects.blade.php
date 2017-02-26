@@ -75,7 +75,7 @@
                                     {{--<td>176-026-5992</td>--}}
                                     <td>
                                         <div class="btn-group">
-                                            <a class="btn btn-primary" href="{{ url('projectProgress') }}">Progress</a>
+                                            <a class="btn btn-primary" href="{{ route('projectProgress', $project->id) }}">Progress</a>
                                         </div>
                                     </td>
                                 </tr>
