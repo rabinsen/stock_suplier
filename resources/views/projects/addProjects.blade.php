@@ -33,6 +33,7 @@
     <link href="css/style-responsive.css" rel="stylesheet" />
     <link href="css/xcharts.min.css" rel=" stylesheet">
     <link href="css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
 </head>
 <body>
@@ -81,6 +82,24 @@
                                 </select>
 
                             </div>
+
+
+
+                            <div class="form-group ">
+                                <label for="cpassword" class="control-label col-lg-2">Project Assign To <span class="required">*</span></label>
+
+                                <div class="input_fields_wrap">
+                                    <button class="add_field_button">Add More Fields</button>
+                                    <div><input type="hidden" name="mytext[]"></div>
+                                </div>
+
+
+
+
+                            </div>
+
+
+
 
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">

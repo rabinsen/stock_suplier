@@ -33,6 +33,54 @@
     <link href="css/style-responsive.css" rel="stylesheet" />
     <link href="css/xcharts.min.css" rel=" stylesheet">
     <link href="css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+
+        <script>
+
+        $(document).ready(function() {
+            var max_fields      = 20; //maximum input boxes allowed
+            var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+            var add_button      = $(".add_field_button"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(add_button).click(function(e){ //on add input button click
+                e.preventDefault();
+                if(x < max_fields){ //max input box allowed
+                    x++; //text box increment
+                    $("#rm").remove();
+                    $(wrapper).append('<div id="divs" class="col-md-6"><input type="text" placeholder="Task" name="mytext[]"/><a href="#" id="rm" class="remove_field">Remove</a></div>'); //add input box
+                    $(wrapper).append('<div id="divs" class="col-md-6"><input type="text" placeholder="Percentage" name="myPercentage[]"/><a href="#" id="rm" class="remove_field"></a></div>'); //add input box
+
+
+                }
+
+            });
+
+            $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+                e.preventDefault();
+                $("#divs").remove(); x--;
+                $("#divs").remove(); x--;
+
+
+
+            })
+        });
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
 
 </head>
 <body>
@@ -53,36 +101,59 @@
                     Input Details
                 </header>
                 <div class="panel-body">
+
                     <div class="form">
                         <form class="form-validate form-horizontal" method="POST" action="">
                             {{ csrf_field() }}
-                            <div class="form-group ">
-                                <label for="cpname" class="control-label col-lg-2">Project Name <span class="required">*</span></label>
-                                <div class="col-lg-10">
-                                    <input class="form-control" id="cpname" name="project_name" minlength="5" type="text" required />
+
+
+                            <div class="col-md-6">
+                                <h3>Task</h3>
+                            </div>
+
+                                <div class="col-md-6">
+
+                                    <h3>Percentage Complete</h3>
+
                                 </div>
+
+
+                            <div class="col-md-6">
+                                <input type="text">
                             </div>
 
-                            <div class="form-group ">
-                                <label for="cdesc" class="control-label col-lg-2">Description <span class="required">*</span></label>
-                                <div class="col-lg-10">
-                                    <input class="form-control" id="clname" name="description" minlength="5" type="text" required />
+                            <div class="col-md-6">
+
+                                <input type="text">
+
+                            </div>
+
+
+
+                            <div class="input_fields_wrap">
+
+                                    <div class="col-md-6"><input type="hidden" name="mytext[]"></div>
+
+
+                                    <div class="col-md-6"><input type="hidden" name="myPercentage[]"></div>
+
                                 </div>
-                            </div>
 
 
-                            <div class="form-group ">
-                                <label for="cpassword" class="control-label col-lg-2">Project Assign To <span class="required">*</span></label>
-                                {{--<select name="assign_to">--}}
-                                    {{--@foreach($users as $user)--}}
-                                        {{--<option value="a"></option>--}}
-                                    {{--@endforeach--}}
-                                {{--</select>--}}
 
-                            </div>
+
+
+
+
+
+
+
+
+
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
                                     <button class="btn btn-primary" type="submit">Save</button>
+                                    <button class="add_field_button">Add</button>
                                     {{--<button class="btn btn-default" type="button"><>Cancel</></button>--}}
                                 </div>
                             </div>
