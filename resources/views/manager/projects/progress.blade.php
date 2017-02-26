@@ -49,7 +49,7 @@
                 if(x < max_fields){ //max input box allowed
                     x++; //text box increment
                     $("#rm").remove();
-                    $(wrapper).append('<div id="divs" class="col-md-6"><input type="text" placeholder="Enter Task" name="mytext[]"/><a href="#" id="rm" class="remove_field">Remove</a></div>'); //add input box
+                    $(wrapper).append('<div id="divs" class="col-md-6"><input type="text" placeholder="Enter Task" name="myTask[]"/><a href="#" id="rm" class="remove_field">Remove</a></div>'); //add input box
                     $(wrapper).append('<div id="divs" class="col-md-6"><input type="text" placeholder="Enter Percentage" name="myPercentage[]"/><a href="#" id="rm" class="remove_field"></a></div>'); //add input box
                 }
             });
@@ -80,7 +80,7 @@
                 <div class="panel-body">
 
                     <div class="form">
-                        <form class="form-validate form-horizontal" method="POST" action="{{ url('/postProgress') }}">
+                        <form class="form-validate form-horizontal" method="POST" action="{{ route('postProgress', $project->id) }}">
                             {{ csrf_field() }}
 
                             <div class="col-md-6">

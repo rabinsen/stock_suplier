@@ -45,5 +45,8 @@ Route::group(['middleware' => 'manager'], function(){
     Route::get('/projectProgress/{id}', [
         'uses' => 'ManDashboardController@progress',
         'as' => 'projectProgress',]);
-    Route::post('/postProjects','ManDashboardController@postProgress');
+//    Route::post('/postProgress/{id}','ManDashboardController@postProgress');
+    Route::post('/postProgress/{id}', [
+        'uses' => 'ManDashboardController@postProgress',
+        'as' => 'postProgress',]);
 });

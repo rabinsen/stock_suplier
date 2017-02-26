@@ -9,4 +9,8 @@ class Projects extends Model
     protected $fillable = [
         'name', 'description', 'assign_to',
     ];
+
+    public function categories(){
+        return $this->hasMany('App\Category');
+    }
 }

@@ -130,17 +130,18 @@ class MigrationCartalystSentinel extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
+            $table->integer('percentage');
             $table->integer('project_id')->unsigned();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->timestamps();
         });
-        Schema::create('progresses', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->integer('percentage')->unsigned();
-            $table->timestamps();
-        });
+//        Schema::create('progresses', function (Blueprint $table) {
+//            $table->increments('id');
+//            $table->integer('category_id')->unsigned();
+//            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+//            $table->integer('percentage')->unsigned();
+//            $table->timestamps();
+//        });
 
     }
 
@@ -160,6 +161,6 @@ class MigrationCartalystSentinel extends Migration
         Schema::drop('users');
         Schema::drop('projects');
         Schema::drop('categories');
-        Schema::drop('progresses');
+//        Schema::drop('progresses');
     }
 }
