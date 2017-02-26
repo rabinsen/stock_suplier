@@ -10,6 +10,7 @@ class UserController extends Controller
 {
     public function index(){
         $users = Sentinel::getUserRepository()->all();
+//        dd(Sentinel::getUser()->roles()->first()->slug);
         return view ('admin.users', compact('users'));
 
     }
@@ -25,9 +26,14 @@ class UserController extends Controller
                 $role = Sentinel::findRoleBySlug('admin');
                 $role->users()->attach($user);
             }
-            elseif ($role->name = 'project_manager')
+            elseif ($role->name == 'project_manager')
             {
                 $role = Sentinel::findRoleBySlug('project_manager');
+                $role->users()->attach($user);
+            }
+            elseif  ($role->name == 'stock_holder')
+            {
+                $role = Sentinel::findRoleBySlug('stock_holder');
                 $role->users()->attach($user);
             }
             return redirect('/users');

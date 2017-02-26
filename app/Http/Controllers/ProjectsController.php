@@ -38,7 +38,7 @@ class ProjectsController extends Controller
 
         $projects->save();
         Session::flash('success1', 'Properties were successfully Stored');
-        return redirect()->back();
+        return redirect('/projects');
     }
 
 

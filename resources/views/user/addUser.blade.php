@@ -87,6 +87,7 @@
                                 <select name="role">
                                     <option value="admin">ADMIN</option>
                                     <option value="project_manager">PROJECT_MANAGER</option>
+                                    <option value="stock_holder">STOCK_HOLDER</option>
                                 </select>
                             </div>
 
