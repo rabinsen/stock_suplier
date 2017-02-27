@@ -53,7 +53,10 @@ class ProjectsController extends Controller
         return redirect('/projects');
     }
     public function delete($id){
-
+        $projects = Projects::find($id);
+        $projects->delete();
+        Session::flash('success', 'The property was successfully Deleted');
+        return redirect()->back();
     }
 
 

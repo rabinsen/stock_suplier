@@ -39,7 +39,7 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('/projects', 'ProjectsController@index');
     Route::get('/addProjects', 'ProjectsController@projects');
     Route::get('/editProjects/{id}', 'ProjectsController@edit');
-    Route::get('/deleteProject/{id}', 'ProjectsController@delete');
+    Route::delete('/deleteProject/{id}', 'ProjectsController@delete');
     Route::post('/postProjects', 'ProjectsController@postProjects');
     Route::post('/updateProject/{id}','ProjectsController@update');
 });
