@@ -80,6 +80,7 @@
                 <div class="panel-body">
 
                     <div class="form">
+
                         <form class="form-validate form-horizontal" method="POST" action="{{ route('postProgress', $project->id) }}">
                             {{ csrf_field() }}
 
