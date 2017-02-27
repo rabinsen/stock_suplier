@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -37,6 +39,28 @@ class UserController extends Controller
                 $role->users()->attach($user);
             }
             return redirect('/users');
+
+    }
+
+    public function editUser($id){
+        $user = User::find($id);
+        return view('user.edit', compact('user'));
+    }
+
+    public function updateUser(Request $request, $id){
+        $user = Sentinel::findById($id);
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+        $user->email = $request->input('email');
+        $user->save();
+        return redirect('/users');
+    }
+    public function delete($id){
+        $user = Sentinel::findById($id);
+        $role = DB::table('role_users')->where('user_id', $id)->first();
+        $user->delete();
+        Session::flash('success', 'The property was successfully Deleted');
+        return redirect()->back();
 
     }
 }

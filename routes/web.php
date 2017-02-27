@@ -32,20 +32,24 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('/dashboard', 'DashboardController@index');
     Route::get('/users', 'UserController@index');
     Route::get('/addUsers', 'UserController@addUser');
+    Route::get('/editUsers/{id}', 'UserController@editUser');
+    Route::delete('deleteUser/{id}', 'UserController@delete');
+    Route::post('/updateUser/{id}', 'UserController@updateUser');
     Route::post('/postUsers', 'UserController@postUser');
     Route::get('/projects', 'ProjectsController@index');
     Route::get('/addProjects', 'ProjectsController@projects');
+    Route::get('/editProjects/{id}', 'ProjectsController@edit');
+    Route::get('/deleteProject/{id}', 'ProjectsController@delete');
     Route::post('/postProjects', 'ProjectsController@postProjects');
+    Route::post('/updateProject/{id}','ProjectsController@update');
 });
 
 Route::group(['middleware' => 'manager'], function(){
     Route::get('/mdashboard', 'ManDashboardController@index');
     Route::get('/managerProjects', 'ManDashboardController@projects');
-//    Route::get('/projectProgress/{id}', 'ManDashboardController@progress');
     Route::get('/projectProgress/{id}', [
         'uses' => 'ManDashboardController@progress',
         'as' => 'projectProgress',]);
-//    Route::post('/postProgress/{id}','ManDashboardController@postProgress');
     Route::post('/postProgress/{id}', [
         'uses' => 'ManDashboardController@postProgress',
         'as' => 'postProgress',]);

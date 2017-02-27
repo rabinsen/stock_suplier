@@ -65,6 +65,7 @@
                                 {{--<th><i class="icon_mobile"></i> Mobile</th>--}}
                                 <th><i class="icon_user"></i> Role</th>
                                 <th><i class="icon_cogs"></i> Action</th>
+                                <th><i class="icon_cogs"></i> Action</th>
                             </tr>
                             @foreach($users as $user)
                             <tr>
@@ -74,11 +75,14 @@
                                 <td>{{ $user->roles->pluck('slug') }}</td>
                                 {{--<td>176-026-5992</td>--}}
                                 <td>
-                                    <div class="btn-group">
-                                        <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
-                                        <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
-                                        <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
-                                    </div>
+
+                                        <a class="btn btn-primary" href="{{ url('/editUsers', $user->id) }}">Edit</a>
+                                </td>
+                                <td>
+                                    {!! Form::open(['url' => ['deleteUser', $user->id], 'method' => 'DELETE' ]) !!}
+                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                    {!! Form::close() !!}
+
                                 </td>
                             </tr>
                                 @endforeach

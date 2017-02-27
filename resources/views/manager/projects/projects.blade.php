@@ -7,9 +7,7 @@
     <meta name="author" content="GeeksLabs">
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
-
     <title>Creative - Bootstrap Admin Template</title>
-
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- bootstrap theme -->
@@ -33,7 +31,6 @@
     <link href="css/style-responsive.css" rel="stylesheet" />
     <link href="css/xcharts.min.css" rel=" stylesheet">
     <link href="css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-
 </head>
 <body>
 <section id="container" class="">
@@ -45,14 +42,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h3 class="page-header"><i class="fa fa-user"></i> My Projects</h3>
-
                 </div>
             </div>
 
             <div class="row">
-
                 <div class="col-lg-12">
-
                     {{--<button class="btn btn-primary" >Save</button>--}}
                     <section class="panel">
                         <table class="table table-striped table-advance table-hover">
@@ -87,9 +81,7 @@
             </div>
         </section>
     </section>
-
 </section>
-
 <script src="js/jquery.js"></script>
 <script src="js/jquery-ui-1.10.4.min.js"></script>
 <script src="js/jquery-1.8.3.min.js"></script>
@@ -113,7 +105,6 @@
 <!-- custom select -->
 <script src="js/jquery.customSelect.min.js" ></script>
 <script src="assets/chart-master/Chart.js"></script>
-
 <!--custome script for all page-->
 <script src="js/scripts.js"></script>
 <!-- custom script for this page-->
@@ -129,6 +120,5 @@
 <script src="js/sparklines.js"></script>
 <script src="js/charts.js"></script>
 <script src="js/jquery.slimscroll.min.js"></script>
-
 </body>
 </html>

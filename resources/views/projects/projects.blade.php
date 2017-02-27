@@ -64,7 +64,8 @@
                                 {{--<th><i class="icon_pin_alt"></i> City</th>--}}
                                 {{--<th><i class="icon_mobile"></i> Mobile</th>--}}
                                 <th><i class="icon_user"></i> Date</th>
-                                <th><i class="icon_cogs"></i> Action</th>
+                                <th><i class="icon_cogs"></i> Edit</th>
+                                <th><i class="icon_cogs"></i> Delete</th>
                             </tr>
                             @foreach($projects as $project)
                                 <tr>
@@ -74,11 +75,14 @@
                                     <td>{{ $project->created_at }}</td>
                                     {{--<td>176-026-5992</td>--}}
                                     <td>
-                                        <div class="btn-group">
-                                            <a class="btn btn-primary" href="#"><i class="icon_plus_alt2"></i></a>
-                                            <a class="btn btn-success" href="#"><i class="icon_check_alt2"></i></a>
-                                            <a class="btn btn-danger" href="#"><i class="icon_close_alt2"></i></a>
-                                        </div>
+
+                                        <a class="btn btn-primary" href="{{ url('/editProjects', $project->id) }}">Edit</a>
+                                    </td>
+                                    <td>
+                                        {!! Form::open(['url' => ['deleteProject', $project->id], 'method' => 'DELETE' ]) !!}
+                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::close() !!}
+
                                     </td>
                                 </tr>
                             @endforeach
