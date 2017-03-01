@@ -14,7 +14,7 @@
                     <span>Projects</span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="form_component.html">All Projects</a></li>
+                    {{--<li><a class="" href="form_component.html">All Projects</a></li>--}}
                     <li><a class="" href="{{ url('managerProjects') }}">New Projects</a></li>
                 </ul>
             </li>
@@ -24,13 +24,13 @@
                     <span>Progress</span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="form_component.html">View Progress</a></li>
-                    <li><a class="" href="{{ url('projectProgress') }}">Update Progress</a></li>
+                    <li><a class="" href="{{ url('/progress') }}">View Progress</a></li>
+                    {{--<li><a class="" href="{{ url('projectProgress') }}">Update Progress</a></li>--}}
                 </ul>
             </li>
 
             <li>
-                <a class="" href="widgets.html">
+                <a class="" href="{{ url('/materials') }}">
                     <i class="icon_genius"></i>
                     <span>Materials</span>
                 </a>

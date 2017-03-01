@@ -28,44 +28,21 @@
 
             </li>
             <li>
-                <a class="" href="widgets.html">
+                <a class="" href="{{ url('/adminMaterials') }}">
                     <i class="icon_genius"></i>
-                    <span>Widgets</span>
+                    <span>Materials</span>
                 </a>
             </li>
             <li>
                 <a class="" href="chart-chartjs.html">
                     <i class="icon_piechart"></i>
-                    <span>Charts</span>
+                    <span>Progress</span>
 
                 </a>
 
             </li>
 
-            <li class="sub-menu">
-                <a href="javascript:;" class="">
-                    <i class="icon_table"></i>
-                    <span>Tables</span>
-                    <span class="menu-arrow arrow_carrot-right"></span>
-                </a>
-                <ul class="sub">
-                    <li><a class="" href="basic_table.html">Basic Table</a></li>
-                </ul>
-            </li>
 
-            <li class="sub-menu">
-                <a href="javascript:;" class="">
-                    <i class="icon_documents_alt"></i>
-                    <span>Pages</span>
-                    <span class="menu-arrow arrow_carrot-right"></span>
-                </a>
-                <ul class="sub">
-                    <li><a class="" href="profile.html">Profile</a></li>
-                    <li><a class="" href="login.html"><span>Login Page</span></a></li>
-                    <li><a class="" href="blank.html">Blank Page</a></li>
-                    <li><a class="" href="404.html">404 Error</a></li>
-                </ul>
-            </li>
 
         </ul>
         <!-- sidebar menu end-->

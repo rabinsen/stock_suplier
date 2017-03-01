@@ -34,10 +34,7 @@
     <link href="{{ asset('css/xcharts.min.css') }}" rel=" stylesheet">
     <link href="{{ asset('css/jquery-ui-1.10.4.min.css') }}" rel="stylesheet">
     <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js') }}"></script>
-
-
-        <script>
-
+    <script>
         $(document).ready(function() {
             var max_fields      = 20; //maximum input boxes allowed
             var wrapper         = $(".input_fields_wrap"); //Fields wrapper
@@ -49,8 +46,8 @@
                 if(x < max_fields){ //max input box allowed
                     x++; //text box increment
                     $("#rm").remove();
-                    $(wrapper).append('<div id="divs" class="col-md-6"><input type="text" placeholder="Enter Task" name="myTask[]"/><a href="#" id="rm" class="remove_field">Remove</a></div>'); //add input box
-                    $(wrapper).append('<div id="divs" class="col-md-6"><input type="text" placeholder="Enter Percentage" name="myPercentage[]"/><a href="#" id="rm" class="remove_field"></a></div>'); //add input box
+                    $(wrapper).append('<div id="divs" class="col-md-6"><input type="text" placeholder="Enter Name" name="myName[]"/><a href="#" id="rm" class="remove_field">Remove</a></div>'); //add input box
+                    $(wrapper).append('<div id="divs" class="col-md-6"><input type="text" placeholder="Enter Quantity" name="myQuantity[]"/><a href="#" id="rm" class="remove_field"></a></div>'); //add input box
                 }
             });
             $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
@@ -70,7 +67,7 @@
             <!--overview start-->
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa-user"></i> Project:</h3>
+                    <h3 class="page-header"><i class="fa fa-user"></i> Material to project: {{ $project->name }}</h3>
                 </div>
             </div>
             <section class="panel">
@@ -80,23 +77,25 @@
                 <div class="panel-body">
 
                     <div class="form">
-
-                        <form class="form-validate form-horizontal" method="POST" action="{{ route('postProgress', $project->id) }}">
+                        <form class="form-validate form-horizontal" method="POST" action="{{ url('/sendMaterial', $project->id) }}">
                             {{ csrf_field() }}
 
                             <div class="col-md-6">
-                                <h3>Task</h3>
+                                <h3>Name</h3>
                             </div>
                             <div class="col-md-6">
-                                <h3>Percentage Complete</h3>
+                                <h3>Quantity</h3>
                             </div>
-                            <div class="input_fields_wrap">
-                                    <div class="col-md-6"><input type="text" placeholder="Enter Task" name="myTask[]"></div>
-                                    <div class="col-md-6"><input type="text" placeholder="Enter Percentage" name="myPercentage[]">%</div>
-                            </div>
+
+                                <div class="input_fields_wrap">
+                                    <div class="col-md-6"><input type="text" placeholder="Enter Name" name="myName[]"></div>
+                                    <div class="col-md-6"><input type="text" placeholder="Enter Quantity" name="myQuantity[]">%</div>
+                                </div>
+
+
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
-                                    <button class="btn btn-primary" type="submit">Save</button>
+                                    <button class="btn btn-primary" type="submit">Send</button>
                                     <button class="add_field_button">Add</button>
                                     {{--<button class="btn btn-default" type="button"><>Cancel</></button>--}}
                                 </div>

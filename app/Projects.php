@@ -13,4 +13,7 @@ class Projects extends Model
     public function categories(){
         return $this->hasMany('App\Category');
     }
+    public function materials(){
+        return $this->hasMany('App\Material');
+    }
 }

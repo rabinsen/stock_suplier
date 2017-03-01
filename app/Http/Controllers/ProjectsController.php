@@ -13,7 +13,7 @@ use phpDocumentor\Reflection\Project;
 class ProjectsController extends Controller
 {
     public function index(){
-        $projects = Projects::all();
+        $projects = Projects::orderBy('created_at', 'desc')->get();
 
         return view('projects.projects', compact('projects'));
     }

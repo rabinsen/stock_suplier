@@ -7,9 +7,7 @@
     <meta name="author" content="GeeksLabs">
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
-
     <title>Creative - Bootstrap Admin Template</title>
-
     <!-- Bootstrap CSS -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- bootstrap theme -->
@@ -34,83 +32,55 @@
     <link href="{{ asset('css/xcharts.min.css') }}" rel=" stylesheet">
     <link href="{{ asset('css/jquery-ui-1.10.4.min.css') }}" rel="stylesheet">
     <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js') }}"></script>
-
-
-        <script>
-
-        $(document).ready(function() {
-            var max_fields      = 20; //maximum input boxes allowed
-            var wrapper         = $(".input_fields_wrap"); //Fields wrapper
-            var add_button      = $(".add_field_button"); //Add button ID
-
-            var x = 1; //initlal text box count
-            $(add_button).click(function(e){ //on add input button click
-                e.preventDefault();
-                if(x < max_fields){ //max input box allowed
-                    x++; //text box increment
-                    $("#rm").remove();
-                    $(wrapper).append('<div id="divs" class="col-md-6"><input type="text" placeholder="Enter Task" name="myTask[]"/><a href="#" id="rm" class="remove_field">Remove</a></div>'); //add input box
-                    $(wrapper).append('<div id="divs" class="col-md-6"><input type="text" placeholder="Enter Percentage" name="myPercentage[]"/><a href="#" id="rm" class="remove_field"></a></div>'); //add input box
-                }
-            });
-            $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-                e.preventDefault();
-                $("#divs").remove(); x--;
-                $("#divs").remove(); x--;
-            })
-        });
-    </script>
 </head>
 <body>
 <section id="container" class="">
-    @include('manager.header.header')
-    @include('manager.slidebar.sidebar')
+    @include('admin.header.header')
+    @include('admin.slidebar.sidebar')
     <section id="main-content">
         <section class="wrapper">
             <!--overview start-->
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa-user"></i> Project:</h3>
+                    <h3 class="page-header"><i class="fa fa-user"></i> Materials</h3>
                 </div>
             </div>
-            <section class="panel">
-                <header class="panel-heading">
-                    Details
-                </header>
-                <div class="panel-body">
 
-                    <div class="form">
+            <div class="row">
+                <div class="col-lg-12">
+                    {{--<button class="btn btn-primary" >Save</button>--}}
+                    <section class="panel">
+                        <table class="table table-striped table-advance table-hover">
+                            <tbody>
+                            <tr>
+                                <th><i class="icon_profile"></i> Material Name</th>
+                                <th><i class="icon_profile"></i> Quantity</th>
+                                <th><i class="icon_profile"></i> Send On</th>
 
-                        <form class="form-validate form-horizontal" method="POST" action="{{ route('postProgress', $project->id) }}">
-                            {{ csrf_field() }}
 
-                            <div class="col-md-6">
-                                <h3>Task</h3>
-                            </div>
-                            <div class="col-md-6">
-                                <h3>Percentage Complete</h3>
-                            </div>
-                            <div class="input_fields_wrap">
-                                    <div class="col-md-6"><input type="text" placeholder="Enter Task" name="myTask[]"></div>
-                                    <div class="col-md-6"><input type="text" placeholder="Enter Percentage" name="myPercentage[]">%</div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-lg-offset-2 col-lg-10">
-                                    <button class="btn btn-primary" type="submit">Save</button>
-                                    <button class="add_field_button">Add</button>
-                                    {{--<button class="btn btn-default" type="button"><>Cancel</></button>--}}
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
+                            </tr>
+                            @foreach($materials as $material)
+                                <tr>
+                                    <td>{{ $material->name }}</td>
+                                    <td>{{ $material->quantity }}</td>
+                                    <td>{{ $material->created_at }}</td>
+                                    <td>
+                                        @if( $material->flag == 0)
+                                            <a class="btn btn-primary">Pending</a>
+                                        @elseif( $material->flag == 1)
+                                            <a class="btn btn-danger">Received</a>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </section>
                 </div>
-            </section>
+            </div>
         </section>
     </section>
-
 </section>
-
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/jquery-ui-1.10.4.min.js') }}"></script>
 <script src="{{ asset('js/jquery-1.8.3.min.js') }}"></script>
@@ -150,6 +120,5 @@
 <script src="{{ asset('js/sparklines.js') }}"></script>
 <script src="{{ asset('js/charts.js') }}"></script>
 <script src="{{ asset('js/jquery.slimscroll.min.js') }}"></script>
-
 </body>
 </html>
