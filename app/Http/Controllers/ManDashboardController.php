@@ -7,9 +7,11 @@ use App\Material;
 use App\Progress;
 use App\Projects;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+use ConsoleTVs\Charts\Facades\Charts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+
 
 class ManDashboardController extends Controller
 {
@@ -25,6 +27,12 @@ class ManDashboardController extends Controller
     public function getProgress(){
         $user = Sentinel::getUser();
         $projects = Projects::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+//        $n = $projects->count();
+//        for ($i=0; $i < $n; $i++){
+//            $id = $projects[$i]->id;
+//           $categories[$i] = Category::where('projects_id', $id)->get();
+//        }
+//        dd($categories = Category::where('project_id', $projects->id)->get());
         return view('manager.projects.getProgress', compact('projects'));
     }
 
@@ -47,7 +55,7 @@ class ManDashboardController extends Controller
             $category->percentage = $percentages[$i];
             $category->save();
         }
-        return redirect('/managerProjects');
+        return redirect('/progress');
 
 
     }
@@ -134,5 +142,38 @@ class ManDashboardController extends Controller
 
     public function displayProgress($id){
         $project= Projects::find($id);
+        $categories= Category::where('projects_id', $project->id)->get();
+//        $percentage= Category::select( 'percentage as 1')
+//            ->where('projects_id', $project->id)->get();
+        $chart = Charts::create('bar', 'highcharts')
+            ->title('Progress Chart')
+            ->elementLabel('Percentage')
+            ->labels($categories->pluck('name'))
+            ->values($categories->pluck('percentage'))
+            ->responsive(true);
+        return view('manager.projects.displayProgress', compact('project', 'chart'));
+    }
+
+    public function editProgress($id){
+        $project= Projects::find($id);
+        $categories= Projects::find($id)->categories;
+//        $n= Projects::find($id)->categories->count();
+        return view ('manager.projects.editProgress', compact('project', 'categories'));
+    }
+
+    public function updateProgress(Request $request, $id){
+        $category = Category::find($id);
+//        dd($catId = DB::table('categories')->where('projects_id',$id)->get()->pluck('id'));
+        $tasks = $request->get('myTask');
+        $percentages = $request->get('myPercentage');
+        $n = count($tasks);
+        for ($i = 0; $i < $n; $i++) {
+//            $category = new Category();
+            $category->name = $tasks[$i];
+//            $category->projects_id = $project->id;
+            $category->percentage = $percentages[$i];
+            $category->save();
+        }
+        return redirect('/progress');
     }
 }

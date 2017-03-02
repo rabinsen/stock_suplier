@@ -75,7 +75,11 @@
                                     </td>
                                     <td>
                                         <div class="btn-group">
-                                            <a class="btn btn-primary" href="{{ route('projectProgress', $project->id) }}">Update Progress</a>
+                                            {{--@if(App\Category::where('projects_id', $project->id)->get() == [])--}}
+                                                <a class="btn btn-primary" href="{{ route('projectProgress', $project->id) }}">Input Progress</a>
+                                            {{--@else--}}
+                                                {{--<a class="btn btn-danger" href="{{ url('/editProgress', $project->id) }}">Update Progress</a>--}}
+                                            {{--@endif--}}
                                         </div>
                                     </td>
                                 </tr>

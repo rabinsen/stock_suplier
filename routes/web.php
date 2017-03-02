@@ -63,4 +63,6 @@ Route::group(['middleware' => 'manager'], function() {
     Route::get('/viewMaterials/{id}', 'ManDashboardController@viewMaterials');
     Route::post('/checkReceipt/{id}', 'ManDashboardController@checkReceipt');
     Route::get('/displayProgress/{id}', 'ManDashboardController@displayProgress');
+    Route::get('/editProgress/{id}', 'ManDashboardController@editProgress');
+    Route::post('/updateProgress/{id}', 'ManDashboardController@updateProgress');
 });

@@ -36,7 +36,7 @@
     <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js') }}"></script>
 
 
-        <script>
+    <script>
 
         $(document).ready(function() {
             var max_fields      = 20; //maximum input boxes allowed
@@ -80,19 +80,28 @@
                 <div class="panel-body">
 
                     <div class="form">
-
-                        <form class="form-validate form-horizontal" method="POST" action="{{ route('postProgress', $project->id) }}">
+                        @foreach($categories as $category)
+                        {!! Form::model($category, ['url' => ['/updateProgress', $category->id], 'method' => 'POST']) !!}
+                        {{--<form class="form-validate form-horizontal" method="POST" action="{{ route('postProgress', $project->id) }}">--}}
                             {{ csrf_field() }}
 
                             <div class="col-md-6">
-                                <h3>Task</h3>
+                                {!! Form::label('myTask[]', 'Task:') !!}
+                                {{--<h3>Task</h3>--}}
                             </div>
                             <div class="col-md-6">
-                                <h3>Percentage Complete</h3>
+                                {!! Form::label('myPercentage[]', 'Percentage Complete:') !!}
+                                {{--<h3>Percentage Complete</h3>--}}
                             </div>
                             <div class="input_fields_wrap">
-                                    <div class="col-md-6"><input type="text" placeholder="Enter Task" name="myTask[]"></div>
-                                    <div class="col-md-6"><input type="text" placeholder="Enter Percentage" name="myPercentage[]">%</div>
+                                <div class="col-md-6">
+                                    {{ Form::text('myTask[]', null, ['class' => 'form-control input-lg']) }}
+                                    {{--<input type="text" placeholder="Enter Task" name="myTask[]">--}}
+                                </div>
+                                <div class="col-md-6">
+                                    {{ Form::text('myPercentage[]', null, ['class' => 'form-control input-lg']) }}
+                                    {{--<input type="text" placeholder="Enter Percentage" name="myPercentage[]">%--}}
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
@@ -101,7 +110,8 @@
                                     {{--<button class="btn btn-default" type="button"><>Cancel</></button>--}}
                                 </div>
                             </div>
-                        </form>
+                        {!! Form::close() !!}
+                            @endforeach
                     </div>
                 </div>
             </section>
