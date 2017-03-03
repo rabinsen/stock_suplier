@@ -49,6 +49,7 @@
                 <div class="col-lg-12">
                     {{--<button class="btn btn-primary" >Save</button>--}}
                     <section class="panel">
+
                         <table class="table table-striped table-advance table-hover">
                             <tbody>
                             <tr>

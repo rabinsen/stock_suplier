@@ -169,6 +169,7 @@ return [
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
+        Laravel\Scout\ScoutServiceProvider::class,
         //
 
         /*

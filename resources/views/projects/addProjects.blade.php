@@ -70,8 +70,6 @@
                                     <input class="form-control" id="clname" name="description" minlength="5" type="text" required />
                                 </div>
                             </div>
-
-
                             <div class="form-group ">
                                 <label for="cpassword" class="control-label col-lg-2">Project Assign To <span class="required">*</span></label>
 
@@ -80,27 +78,7 @@
                                     <option value="{{ $user->first_name }}">{{ $user->first_name }}</option>
                                     @endforeach
                                 </select>
-
                             </div>
-
-
-
-                            <div class="form-group ">
-                                <label for="cpassword" class="control-label col-lg-2">Project Assign To <span class="required">*</span></label>
-
-                                <div class="input_fields_wrap">
-                                    <button class="add_field_button">Add More Fields</button>
-                                    <div><input type="hidden" name="mytext[]"></div>
-                                </div>
-
-
-
-
-                            </div>
-
-
-
-
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
                                     <button class="btn btn-primary" type="submit">Save</button>

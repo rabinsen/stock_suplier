@@ -34,7 +34,7 @@
                 </a>
             </li>
             <li>
-                <a class="" href="chart-chartjs.html">
+                <a class="" href="/adminProgress">
                     <i class="icon_piechart"></i>
                     <span>Progress</span>
 

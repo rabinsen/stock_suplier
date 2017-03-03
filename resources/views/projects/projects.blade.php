@@ -50,11 +50,29 @@
             </div>
 
             <div class="row">
-
-                <div class="col-lg-12">
-                    <button class="btn btn-default" type="submit"><a  href="{{ url('addProjects') }}">Add Project</a></button>
-                    {{--<button class="btn btn-primary" >Save</button>--}}
-                    <section class="panel">
+               <div class="col-lg-12">
+                   <div class="col-lg-6">
+                       <form method="GET" action="{{ url('/searchProjects') }}">
+                           <div class="row">
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <input type="text" name="titlesearch" class="form-control" placeholder="Enter Title For Search" value="{{ old('titlesearch') }}">
+                                   </div>
+                               </div>
+                               <div class="col-md-6">
+                                   <div class="form-group">
+                                       <button class="btn btn-success">Search</button>
+                                   </div>
+                               </div>
+                           </div>
+                       </form>
+                   </div>
+                   <div class="col-lg-3">
+                       <button class="btn btn-default" type="submit"><a  href="{{ url('addProjects') }}">Add Project</a></button>
+                   </div>
+               </div>
+                {{--<button class="btn btn-primary" >Save</button>--}}
+                <section class="panel">
                         <table class="table table-striped table-advance table-hover">
                             <tbody>
                             <tr>
@@ -90,7 +108,6 @@
                         </table>
                     </section>
                 </div>
-            </div>
         </section>
     </section>
 

@@ -59,5 +59,14 @@ class ProjectsController extends Controller
         return redirect()->back();
     }
 
+    public function search(Request $request){
+        if($request->has('titlesearch')){
+            $projects = Projects::search($request->titlesearch)
+                ->paginate(6);
+        }else{
+            $projects = Projects::paginate(6);
+        }
+        return view('projects.projects',compact('projects'));
+    }
 
 }

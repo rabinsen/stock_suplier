@@ -40,12 +40,16 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('/addProjects', 'ProjectsController@projects');
     Route::get('/editProjects/{id}', 'ProjectsController@edit');
     Route::delete('/deleteProject/{id}', 'ProjectsController@delete');
+    Route::get('searchProjects', ['as'=>'searchProjects','uses'=>'ProjectsController@search']);
     Route::post('/postProjects', 'ProjectsController@postProjects');
     Route::post('/updateProject/{id}','ProjectsController@update');
     Route::get('/adminMaterials', 'DashboardController@material');
     Route::get('/addMaterial/{id}', 'DashboardController@addMaterial');
     Route::post('/sendMaterial/{id}', 'DashboardController@sendMaterial');
     Route::get('/viewStatus/{id}', 'DashboardController@viewStatus');
+
+    Route::get('/adminProgress', 'DashboardController@adminProgress');
+    Route::get('/adminDisplayProgress/{id}', 'DashboardController@adminDisplayProgress');
 
 });
 

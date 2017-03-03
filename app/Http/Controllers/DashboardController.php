@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Material;
 use App\Projects;
+use ConsoleTVs\Charts\Facades\Charts;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -43,5 +45,22 @@ class DashboardController extends Controller
         $project = Projects::find($id);
         $materials = Material::where('projects_id', $project->id)->get();
         return view('admin.materials.viewStatus', compact('materials'));
+    }
+
+    public function adminProgress(){
+        $projects = Projects::all();
+        return view('admin.progress.getProgress', compact('projects'));
+    }
+
+    public function adminDisplayProgress($id){
+        $project= Projects::find($id);
+        $categories= Category::where('projects_id', $project->id)->get();
+        $chart = Charts::create('bar', 'highcharts')
+            ->title('Progress Chart')
+            ->elementLabel('Percentage')
+            ->labels($categories->pluck('name'))
+            ->values($categories->pluck('percentage'))
+            ->responsive(true);
+        return view('admin.progress.displayProgress', compact('project', 'chart'));
     }
 }
